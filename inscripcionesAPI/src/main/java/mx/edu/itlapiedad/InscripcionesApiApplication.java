@@ -1,3 +1,4 @@
+
 package mx.edu.itlapiedad;
 
 import org.springframework.boot.SpringApplication;
@@ -14,3 +15,4 @@ public class InscripcionesApiApplication {
 
 
 //tercer intento
+
