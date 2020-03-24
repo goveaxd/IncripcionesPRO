@@ -13,7 +13,6 @@ public class Docente {
 		// TODO Auto-generated constructor stub
 	}
 
-
 	public Docente(int iddocente, String nombre, String apellido, String rFC, String mail) {
 		super();
 		this.iddocente = iddocente;
