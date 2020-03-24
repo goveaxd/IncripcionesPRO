@@ -7,5 +7,6 @@ import mx.edu.itlapiedad.models.Docente;
 public interface DAO {
 
 	List<Docente> consultarDocentes();
+	Docente buscarDocente(int iddocente);
 
 }

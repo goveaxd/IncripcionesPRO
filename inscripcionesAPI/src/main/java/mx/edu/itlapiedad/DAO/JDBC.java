@@ -22,4 +22,10 @@ public class JDBC implements DAO {
 		return conexion.query(sql, new RM());
 	}
 	
+	@Override
+	public Docente buscarDocente(int iddocente) {
+		sql = "SELECT * FROM docentes WHERE iddocente = ?";
+		return conexion.queryForObject(sql, new RM(), iddocente);
+	}
+	
 }
