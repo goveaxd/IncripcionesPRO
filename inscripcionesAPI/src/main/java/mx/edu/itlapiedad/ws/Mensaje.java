@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mx.edu.itlapiedad.DAO.DAO;
 import mx.edu.itlapiedad.models.Docente;
+import mx.edu.itlapiedad.models.Carreras;
 
 @RestController
 @RequestMapping("/tec")
@@ -26,4 +27,14 @@ public class Mensaje {
 	public Docente buscarDocente(@PathVariable int iddocente) {
 		return repositorio.buscarDocente(iddocente);
 	}
+	//CARRERAS
+	@GetMapping("carreras")
+	public List<Carreras> consultarCarreras(){
+		return repositorio.consultarCarreras();
+	}
+	@GetMapping("carreras/{idcarrera}")
+	public Carreras buscarCarreras(@PathVariable int idcarrera) {
+		return repositorio.buscarCarreras(idcarrera);
+	}
+	
 }

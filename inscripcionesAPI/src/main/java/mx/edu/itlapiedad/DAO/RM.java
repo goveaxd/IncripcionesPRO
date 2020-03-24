@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
+
+
 import mx.edu.itlapiedad.models.Docente;
 
 public class RM implements RowMapper<Docente>{
@@ -18,5 +20,6 @@ public class RM implements RowMapper<Docente>{
 		docente.setMail(rs.getString("mail"));
 		return docente;
 	}
-
+	
+	
 }
