@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.edu.itlapiedad.DAO.DAO;
 import mx.edu.itlapiedad.models.Docente;
+import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.Carreras;
 
 @RestController
@@ -35,6 +37,12 @@ public class Mensaje {
 	@GetMapping("carreras/{idcarrera}")
 	public Carreras buscarCarreras(@PathVariable int idcarrera) {
 		return repositorio.buscarCarreras(idcarrera);
+	}
+	
+	
+	@GetMapping("materias")
+	public List<Materias> buscarMateriasCarrera(@RequestParam String carrera) {
+		return repositorio.buscarMateriaCarrera(carrera);
 	}
 	
 }
