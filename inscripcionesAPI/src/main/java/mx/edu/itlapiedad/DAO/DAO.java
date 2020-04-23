@@ -16,6 +16,7 @@ public interface DAO {
 	List<Materias> buscarMateriaCarrera(String carrera);
 	Alumno buscarAlumno(int idAlumno);
 	Alumno sesion(Alumno alumno);
+	Materias buscarMaterias(int idmaterias);
 	
 	
 }
