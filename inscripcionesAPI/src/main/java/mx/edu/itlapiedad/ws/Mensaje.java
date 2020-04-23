@@ -40,6 +40,10 @@ public class Mensaje {
 	public Carreras buscarCarreras(@PathVariable int idcarrera) {
 		return repositorio.buscarCarreras(idcarrera);
 	}
+	@GetMapping("materias/{idmaterias}")
+	public Materias buscarMaterias(@PathVariable int idmaterias) {
+		return repositorio.buscarMaterias(idmaterias);
+	}
 	@GetMapping("materias")
 	public List<Materias> buscarMateriasCarrera(@RequestParam String carrera) {
 		return repositorio.buscarMateriaCarrera(carrera);

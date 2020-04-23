@@ -45,6 +45,12 @@ public class JDBC implements DAO {
 	}
 	
 	@Override
+	public Materias buscarMaterias(int idmaterias) {
+		sql = "SELECT * FROM materias WHERE idmaterias = ?";
+		return conexion.queryForObject(sql, new RMMaterias(), idmaterias);
+	}
+	
+	@Override
 	public List<Materias> buscarMateriaCarrera(String carrera) {
 		sql ="SELECT * FROM Materias WHERE CARRERA =?";
 		return conexion.query(sql,new RMMaterias(), carrera);
