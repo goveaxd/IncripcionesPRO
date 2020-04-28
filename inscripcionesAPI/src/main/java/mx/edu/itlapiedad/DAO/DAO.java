@@ -17,6 +17,7 @@ public interface DAO {
 	Alumno buscarAlumno(int idAlumno);
 	Alumno sesion(Alumno alumno);
 	Materias buscarMaterias(int idmaterias);
+	List<Alumno> buscarAlumnCarrera(int idcarrera);
 	
 	
 }

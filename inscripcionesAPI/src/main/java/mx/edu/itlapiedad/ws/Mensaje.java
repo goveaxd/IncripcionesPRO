@@ -56,8 +56,8 @@ public class Mensaje {
 	}
 	
 	@GetMapping("alumnos/carreras/{idcarrera}")
-	public Carreras buscarCarrerasAlumno(@PathVariable int idcarrera) {
-		return repositorio.buscarCarreras(idcarrera);
+	public List<Alumno> buscarCarrerasAlumno(@PathVariable int idcarrera) {
+		return repositorio.buscarAlumnCarrera(idcarrera);
 	}
 	
 	@RequestMapping("sesion")
