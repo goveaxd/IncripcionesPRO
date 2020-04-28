@@ -2,14 +2,14 @@ package mx.edu.itlapiedad.models;
 
 public class Materias {
 	int idmaterias, creditos;
-	String nombre_materia, codigo_materia, carrera;
-	public Materias(int idmaterias, int creditos, String nombre_materia, String codigo_materia, String carrera) {
+	String nombre_materia, codigo_materia, idcarrera;
+	public Materias(int idmaterias, int creditos, String nombre_materia, String codigo_materia, String idcarrera) {
 		super();
 		this.idmaterias = idmaterias;
 		this.creditos = creditos;
 		this.nombre_materia = nombre_materia;
 		this.codigo_materia = codigo_materia;
-		this.carrera = carrera;
+		this.idcarrera = idcarrera;
 	}
 	public Materias() {
 		super();
@@ -40,10 +40,10 @@ public class Materias {
 		this.codigo_materia = codigo_materia;
 	}
 	public String getCarrera() {
-		return carrera;
+		return idcarrera;
 	}
-	public void setCarrera(String carrera) {
-		this.carrera = carrera;
+	public void setCarrera(String idcarrera) {
+		this.idcarrera = idcarrera;
 	}
 	
 	
