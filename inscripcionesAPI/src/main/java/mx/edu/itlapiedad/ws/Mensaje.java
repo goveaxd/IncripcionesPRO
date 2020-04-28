@@ -60,7 +60,7 @@ public class Mensaje {
 		return repositorio.buscarAlumnCarrera(idcarrera);
 	}
 	
-	@RequestMapping("sesion")
+	@GetMapping("sesion")
 	public Alumno recuperarSesion(@RequestBody Alumno alumno) {
 		return repositorio.sesion(alumno);
 	}
