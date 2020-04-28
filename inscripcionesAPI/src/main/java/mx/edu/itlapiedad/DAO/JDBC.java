@@ -68,5 +68,11 @@ public class JDBC implements DAO {
 		sql ="SELECT * FROM Alumnos WHERE NoControl =? and Contraseña = ?";
 		return conexion.queryForObject(sql, new RMAlumnos(), alumno.getNoControl(),alumno.getContraseña());
 	}
+
+	@Override
+	public List<Alumno> buscarAlumnCarrera(int idcarrera) {
+		sql ="select * from alumnos where idCarrera =?";
+		return conexion.query(sql,new RMAlumnos(), idcarrera);
+	}
 	
 }
