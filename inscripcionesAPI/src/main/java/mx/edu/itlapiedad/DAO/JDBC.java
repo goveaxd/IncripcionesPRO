@@ -51,9 +51,9 @@ public class JDBC implements DAO {
 	}
 	
 	@Override
-	public List<Materias> buscarMateriaCarrera(String carrera) {
-		sql ="SELECT * FROM Materias WHERE CARRERA =?";
-		return conexion.query(sql,new RMMaterias(), carrera);
+	public List<Materias> buscarMateriaCarrera(int  idcarrera) {
+		sql ="SELECT * FROM Materias WHERE idcarrera =?";
+		return conexion.query(sql,new RMMaterias(), idcarrera);
 	}
 
 	@Override

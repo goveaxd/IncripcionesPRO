@@ -45,8 +45,8 @@ public class Mensaje {
 		return repositorio.buscarMaterias(idmaterias);
 	}
 	@GetMapping("materias")
-	public List<Materias> buscarMateriasCarrera(@RequestParam String carrera) {
-		return repositorio.buscarMateriaCarrera(carrera);
+	public List<Materias> buscarMateriasCarrera(@RequestParam int idcarrera) {
+		return repositorio.buscarMateriaCarrera(idcarrera);
 	}
 	
 	//Estos son los alumnos
