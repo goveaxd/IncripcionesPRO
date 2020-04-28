@@ -44,7 +44,7 @@ public class Mensaje {
 	public Materias buscarMaterias(@PathVariable int idmaterias) {
 		return repositorio.buscarMaterias(idmaterias);
 	}
-	@GetMapping("materias")
+	@GetMapping("materias") 
 	public List<Materias> buscarMateriasCarrera(@RequestParam int idcarrera) {
 		return repositorio.buscarMateriaCarrera(idcarrera);
 	}
