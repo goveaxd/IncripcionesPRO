@@ -50,7 +50,7 @@ public class Mensaje {
 	}
 	
 	//Estos son los alumnos
-	@GetMapping("alumno/idAlumno")
+	@GetMapping("alumno/{idAlumno}")
 	public Alumno buscarAlumno(@PathVariable int idAlumno) {
 		return repositorio.buscarAlumno(idAlumno);
 	}
