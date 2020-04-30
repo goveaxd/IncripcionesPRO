@@ -18,7 +18,7 @@ public class RMAlumnos implements RowMapper<Alumno>{
 		al.setCorreo(rs.getString("Correo"));
 		al.setNoControl(rs.getString("NoControl"));
 		al.setNombre(rs.getString("Nombre"));
-		return null;
+		return al;
 	}
 
 }

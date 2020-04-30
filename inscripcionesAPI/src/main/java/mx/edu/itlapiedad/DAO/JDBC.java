@@ -51,9 +51,9 @@ public class JDBC implements DAO {
 	}
 	
 	@Override
-	public List<Materias> buscarMateriaCarrera(String carrera) {
-		sql ="SELECT * FROM Materias WHERE CARRERA =?";
-		return conexion.query(sql,new RMMaterias(), carrera);
+	public List<Materias> buscarMateriaCarrera(int  idcarrera) {
+		sql ="SELECT * FROM Materias WHERE idcarrera =?";
+		return conexion.query(sql,new RMMaterias(), idcarrera);
 	}
 
 	@Override
@@ -67,6 +67,12 @@ public class JDBC implements DAO {
 	public Alumno sesion(Alumno alumno) {
 		sql ="SELECT * FROM Alumnos WHERE NoControl =? and Contraseña = ?";
 		return conexion.queryForObject(sql, new RMAlumnos(), alumno.getNoControl(),alumno.getContraseña());
+	}
+
+	@Override
+	public List<Alumno> buscarAlumnCarrera(int idcarrera) {
+		sql ="select * from alumnos where idCarrera =?";
+		return conexion.query(sql,new RMAlumnos(), idcarrera);
 	}
 	
 }

@@ -1,0 +1,12 @@
+mx\edu\itlapiedad\models\Materias.class
+mx\edu\itlapiedad\models\Docente.class
+mx\edu\itlapiedad\InscripcionesApiApplication.class
+mx\edu\itlapiedad\DAO\RMCARRERAS.class
+mx\edu\itlapiedad\DAO\DAO.class
+mx\edu\itlapiedad\models\Carreras.class
+mx\edu\itlapiedad\DAO\RMMaterias.class
+mx\edu\itlapiedad\models\Alumno.class
+mx\edu\itlapiedad\DAO\RMAlumnos.class
+mx\edu\itlapiedad\ws\Mensaje.class
+mx\edu\itlapiedad\DAO\JDBC.class
+mx\edu\itlapiedad\DAO\RM.class

@@ -44,23 +44,23 @@ public class Mensaje {
 	public Materias buscarMaterias(@PathVariable int idmaterias) {
 		return repositorio.buscarMaterias(idmaterias);
 	}
-	@GetMapping("materias")
-	public List<Materias> buscarMateriasCarrera(@RequestParam String carrera) {
-		return repositorio.buscarMateriaCarrera(carrera);
+	@GetMapping("materias/carrera/{idcarrera}") 
+	public List<Materias> buscarMateriasCarrera(@PathVariable int idcarrera) {
+		return repositorio.buscarMateriaCarrera(idcarrera);
 	}
 	
 	//Estos son los alumnos
-	@GetMapping("alumno/idAlumno")
+	@GetMapping("alumno/{idAlumno}")
 	public Alumno buscarAlumno(@PathVariable int idAlumno) {
 		return repositorio.buscarAlumno(idAlumno);
 	}
 	
 	@GetMapping("alumnos/carreras/{idcarrera}")
-	public Carreras buscarCarrerasAlumno(@PathVariable int idcarrera) {
-		return repositorio.buscarCarreras(idcarrera);
+	public List<Alumno> buscarCarrerasAlumno(@PathVariable int idcarrera) {
+		return repositorio.buscarAlumnCarrera(idcarrera);
 	}
 	
-	@RequestMapping("sesion")
+	@GetMapping("sesion")
 	public Alumno recuperarSesion(@RequestBody Alumno alumno) {
 		return repositorio.sesion(alumno);
 	}

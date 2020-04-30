@@ -13,10 +13,11 @@ public interface DAO {
 	
 	List<Carreras> consultarCarreras();
 	Carreras buscarCarreras(int idcarrera);
-	List<Materias> buscarMateriaCarrera(String carrera);
 	Alumno buscarAlumno(int idAlumno);
 	Alumno sesion(Alumno alumno);
 	Materias buscarMaterias(int idmaterias);
+	List<Alumno> buscarAlumnCarrera(int idcarrera);
+	List<Materias> buscarMateriaCarrera(int idcarrera);
 	
 	
 }
