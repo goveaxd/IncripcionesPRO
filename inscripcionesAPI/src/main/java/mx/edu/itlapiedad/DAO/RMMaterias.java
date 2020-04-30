@@ -17,7 +17,7 @@ public class RMMaterias implements RowMapper<Materias>{
 		materias.setNombre_materia(rs.getString("nombre_materia"));
 		materias.setCodigo_materia(rs.getString("codigo_materia"));
 		materias.setCreditos(rs.getInt("creditos"));
-		materias.setCarrera(rs.getString("carrera"));
+		materias.setCarrera(rs.getInt("idcarrera"));
 		
 		return materias;
 	}
