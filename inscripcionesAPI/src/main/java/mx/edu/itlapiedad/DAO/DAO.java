@@ -2,21 +2,21 @@ package mx.edu.itlapiedad.DAO;
 
 import java.util.List;
 
-import mx.edu.itlapiedad.models.Docente;
+import mx.edu.itlapiedad.models.Docentes;
 import mx.edu.itlapiedad.models.Materias;
-import mx.edu.itlapiedad.models.Alumno;
+import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
 public interface DAO {
 
-	List<Docente> consultarDocentes();
-	Docente buscarDocente(int iddocente);
+	List<Docentes> consultarDocentes();
+	Docentes buscarDocente(int iddocente);
 	
 	List<Carreras> consultarCarreras();
 	Carreras buscarCarreras(int idcarrera);
-	Alumno buscarAlumno(int idAlumno);
-	Alumno sesion(Alumno alumno);
+	Alumnos buscarAlumno(int idAlumno);
+	Alumnos sesion(Alumnos alumno);
 	Materias buscarMaterias(int idmaterias);
-	List<Alumno> buscarAlumnCarrera(int idcarrera);
+	List<Alumnos> buscarAlumnCarrera(int idcarrera);
 	List<Materias> buscarMateriaCarrera(int idcarrera);
 	
 	
