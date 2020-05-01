@@ -1,13 +1,12 @@
 package mx.edu.itlapiedad.models;
 
-public class Alumno {
+public class Alumnos {
 	int idAlumno;
 	String Nombre;
 	String Apellidos;
 	String NoControl;
 	String Correo;
 	String Contraseña;
-	
 	public int getIdAlumno() {
 		return idAlumno;
 	}
@@ -44,7 +43,7 @@ public class Alumno {
 	public void setContraseña(String contraseña) {
 		Contraseña = contraseña;
 	}
-	public Alumno(int idAlumno, String nombre, String apellidos, String noControl, String correo, String contraseña) {
+	public Alumnos(int idAlumno, String nombre, String apellidos, String noControl, String correo, String contraseña) {
 		super();
 		this.idAlumno = idAlumno;
 		Nombre = nombre;
@@ -53,10 +52,10 @@ public class Alumno {
 		Correo = correo;
 		Contraseña = contraseña;
 	}
-	public Alumno() {
+	public Alumnos() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+
 }

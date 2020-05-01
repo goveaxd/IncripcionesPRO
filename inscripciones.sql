@@ -35,7 +35,7 @@ insert into alumnos values ('5', '4', 'chuy', 'gonzales ruiz', '16640091', 'chuy
 insert into alumnos values ('6', '2', 'julieta', 'alatorre cazares', '16640093', 'chuy@gmail.com', '1234');
 insert into alumnos values ('7', '2', 'miguel', 'porras moreno', '16640094', 'chuy@gmail.com', '1234');
 insert into alumnos values ('8', '3', 'gabriela', 'maravillas lopez', '16640291', 'chuy@gmail.com', '1234');
-insert into alumnos values ('9', '4', 'jesus', 'ruiz pacheco', '16640099', 'chuy@gmail.com', '1234');
+insert into alumnos values ('9', '4', 'jesus', 'ruiz pacheco', '16640077', 'chuy@gmail.com', '1234');
 insert into alumnos values ('10', '4', 'guillermo', 'guzman espinosa', '16648791', 'chuy@gmail.com', '1234');
 
 CREATE TABLE `docentes` (

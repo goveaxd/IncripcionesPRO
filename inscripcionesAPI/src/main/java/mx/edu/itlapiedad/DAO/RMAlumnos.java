@@ -5,13 +5,13 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import mx.edu.itlapiedad.models.Alumno;
+import mx.edu.itlapiedad.models.Alumnos;
 
-public class RMAlumnos implements RowMapper<Alumno>{
+public class RMAlumnos implements RowMapper<Alumnos>{
 
 	@Override
-	public Alumno mapRow(ResultSet rs, int rowNum) throws SQLException {
-		Alumno al=new Alumno();
+	public Alumnos mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Alumnos al=new Alumnos();
 		al.setIdAlumno(rs.getInt("idAlumno"));
 		al.setApellidos(rs.getString("Apellidos"));
 		al.setContraseña(rs.getString("Contraseña"));

@@ -1,19 +1,18 @@
 package mx.edu.itlapiedad.models;
 
-public class Docente {
+public class Docentes {
 	int iddocente;
 	String nombre;
 	String apellido;
 	String RFC;
 	String mail;
 	
-	
-	public Docente() {
+	public Docentes() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Docente(int iddocente, String nombre, String apellido, String rFC, String mail) {
+	public Docentes(int iddocente, String nombre, String apellido, String rFC, String mail) {
 		super();
 		this.iddocente = iddocente;
 		this.nombre = nombre;
@@ -72,5 +71,5 @@ public class Docente {
 		this.mail = mail;
 	}
 	
-	
+
 }
