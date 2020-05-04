@@ -10,6 +10,7 @@ import mx.edu.itlapiedad.DAO.RM;
 import mx.edu.itlapiedad.DAO.RMCARRERAS;
 import mx.edu.itlapiedad.models.Docentes;
 import mx.edu.itlapiedad.models.Materias;
+import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;;
 
@@ -64,7 +65,7 @@ public class JDBC implements DAO {
 	}
 
 	@Override
-	public Alumnos sesion(Alumnos alumno) {
+	public Alumnos sesion(SesionAlumno alumno) {
 		sql ="SELECT * FROM Alumnos WHERE NoControl =? and Contraseña = ?";
 		return conexion.queryForObject(sql, new RMAlumnos(), alumno.getNoControl(),alumno.getContraseña());
 	}
