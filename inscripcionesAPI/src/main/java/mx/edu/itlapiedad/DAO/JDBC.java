@@ -79,11 +79,11 @@ public class JDBC implements DAO {
 	
 	@Override
 	public List<Materias> consultaKardexMateria(int idalumno) {
-		sql ="select   m.nombre_materia, m.codigo_materia, c.calificacion\r\n" + 
-			"from materias m\r\n" + 
-			"join cursada c on c.materias_idmaterias=m.idmaterias\r\n" + 
-			"join alumnos a on a.idalumno=c.alumnos_idAlumno\r\n" + 
-			"where a.idalumno=?";
+		sql ="select m.idmaterias, m.creditos, m.idcarrera,  m.nombre_materia, m.codigo_materia, c.calificacion\r\n" + 
+	            "from materias m\r\n" + 
+	            "join cursada c on c.materias_idmaterias=m.idmaterias\r\n" + 
+	            "join alumnos a on a.idalumno=c.alumnos_idAlumno\r\n" + 
+	            "where a.idalumno=?";
 		return conexion.query(sql,new RMMaterias(), idalumno);
 	}
 
