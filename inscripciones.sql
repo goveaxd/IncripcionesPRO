@@ -9,11 +9,12 @@ CREATE TABLE carreras (
   creditosTotales int(11) NOT NULL,
   PRIMARY KEY (idcarrera)
 );
-insert into carreras values ('1', 'hfjks', 'tics', 9);
-insert into carreras values ('2', 'lslldl', 'gestion', 8);
-insert into carreras values ('3', '34fff', 'admin', 7);
-insert into carreras values ('4', 'dsdsfs', 'mecatronica', 10);
-insert into carreras values ('5', 'lijdsflj', 'bioquimica', 5);
+insert into carreras values ('1', 'hfjks', 'Tecnologias de la Informacion y comunicaciones', 9);
+insert into carreras values ('2', 'hfjks', 'Sistemas Computacionales', 9);
+insert into carreras values ('3', 'lslldl', 'Gestion Empresarial', 8);
+insert into carreras values ('4', '34fff', 'Administracion', 7);
+insert into carreras values ('5', 'dsdsfs', 'Mecatronica', 10);
+insert into carreras values ('6', 'lijdsflj', 'Bioquimica', 5);
 
 CREATE TABLE alumnos (
   idAlumno int(11) NOT NULL AUTO_INCREMENT,
@@ -27,10 +28,15 @@ CREATE TABLE alumnos (
   FOREIGN KEY(idcarrera) REFERENCES carreras (idcarrera)
 );
 insert into alumnos values ('1', '1', 'daniel', 'belmonte diaz', '16640099', 'daniel@gmail.com', '1234');
-insert into alumnos values ('2', '2', 'cecilia', 'alanis cazares', '16640098', 'ceci@gmail.com', '1234');
+insert into alumnos values ('2', '1', 'cecilia', 'alanis cazares', '16640098', 'ceci@gmail.com', '1234');
 insert into alumnos values ('3', '1', 'miguel', 'hernandez reyes', '16640100', 'mike@gmail.com', '1234');
 insert into alumnos values ('4', '3', 'luis', 'govea magaña', '16640095', 'luis@gmail.com', '1234');
 insert into alumnos values ('5', '4', 'chuy', 'gonzales ruiz', '16640091', 'chuy@gmail.com', '1234');
+insert into alumnos values ('6', '2', 'julieta', 'alatorre cazares', '16640093', 'chuy@gmail.com', '1234');
+insert into alumnos values ('7', '2', 'miguel', 'porras moreno', '16640094', 'chuy@gmail.com', '1234');
+insert into alumnos values ('8', '3', 'gabriela', 'maravillas lopez', '16640291', 'chuy@gmail.com', '1234');
+insert into alumnos values ('9', '4', 'jesus', 'ruiz pacheco', '16640077', 'chuy@gmail.com', '1234');
+insert into alumnos values ('10', '4', 'guillermo', 'guzman espinosa', '16648791', 'chuy@gmail.com', '1234');
 
 CREATE TABLE `docentes` (
   `iddocente` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -60,3 +66,8 @@ INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `cre
 INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `creditos`, `idcarrera`) VALUES ('Redes emergentes', 'RE522288', '5', '1');
 INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `creditos`, `idcarrera`) VALUES ('Telecomunicaiones', 'T5273929', '4', '1');
 INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `creditos`, `idcarrera`) VALUES ('DevOps', 'DO97732', '5', '1');
+INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `creditos`, `idcarrera`) VALUES ('Lenguajes Automatas', 'LA6682', '5', '2');
+INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `creditos`, `idcarrera`) VALUES ('Calculo Vectorial', 'CV1632', '5', '2');
+INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `creditos`, `idcarrera`) VALUES ('Graficacion', 'DO97732', '5', '2');
+INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `creditos`, `idcarrera`) VALUES ('Contabilidad II', 'DO97732', '5', '3');
+INSERT INTO `inscripciones`.`materias` (`nombre_materia`, `codigo_materia`, `creditos`, `idcarrera`) VALUES ('Investigacion', 'DO97732', '5', '3');
