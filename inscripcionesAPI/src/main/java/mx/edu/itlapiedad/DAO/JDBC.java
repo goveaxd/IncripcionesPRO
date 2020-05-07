@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import mx.edu.itlapiedad.DAO.RM;
 import mx.edu.itlapiedad.DAO.RMCARRERAS;
 import mx.edu.itlapiedad.models.Docentes;
+import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
@@ -75,5 +76,16 @@ public class JDBC implements DAO {
 		sql ="select * from alumnos where idCarrera =?";
 		return conexion.query(sql,new RMAlumnos(), idcarrera);
 	}
+	
+	@Override
+	public List<Materias> consultaKardexMateria(int idalumno) {
+		sql ="select   m.nombre_materia, m.codigo_materia, c.calificacion\r\n" + 
+			"from materias m\r\n" + 
+			"join cursada c on c.materias_idmaterias=m.idmaterias\r\n" + 
+			"join alumnos a on a.idalumno=c.alumnos_idAlumno\r\n" + 
+			"where a.idalumno=?";
+		return conexion.query(sql,new RMMaterias(), idalumno);
+	}
+
 	
 }
