@@ -9,7 +9,7 @@ import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
 public interface DAO {
-
+//prueba
 	List<Docentes> consultarDocentes();
 	Docentes buscarDocente(int iddocente);
 	
