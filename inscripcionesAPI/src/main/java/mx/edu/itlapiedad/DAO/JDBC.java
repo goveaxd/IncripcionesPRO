@@ -108,4 +108,13 @@ public class JDBC implements DAO {
 		return conexion.query(sql,new RMMaterias(), alumnos_idAlumno);
 	}
 
+	@Override
+	public List<Materias> consultaHorario(int idAlumno) {
+		sql="select m.idmaterias, m.codigo_materia, m.creditos, m.idcarrera, m.nombre_materia, h.hora, h.dia\r\n" + 
+				"from materias m\r\n" + 
+				"join horas h on h.materias_idmaterias = m.idmaterias\r\n" + 
+				"join horario ho on ho.materias_idmaterias = m.idmaterias\r\n" + 
+				"where ho.alumnos_idAlumno = ? order by h.dia;";
+		return conexion.query(sql,new RMMaterias(), idAlumno);
+	}
 }

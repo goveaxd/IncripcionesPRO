@@ -36,4 +36,8 @@ public class ITLP_Materia {
 	public List<Materias> horarioDocentesMaterias(@PathVariable int alumnos_idAlumno){
 		return repositorio.horarioDocentesMaterias(alumnos_idAlumno);
 	}
+	@GetMapping("materias/horarios/{idAlumno}")
+	public List<Materias> consultaHorario(@PathVariable int idAlumno){
+		return repositorio.consultaHorario(idAlumno);
+	}
 }
