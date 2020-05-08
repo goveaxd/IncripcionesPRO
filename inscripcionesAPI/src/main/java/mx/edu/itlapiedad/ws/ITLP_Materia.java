@@ -32,4 +32,8 @@ public class ITLP_Materia {
 		return repositorio.consultaKardexMateria(idalumno);
 	}
 	//horarioc:
+	@GetMapping("docente/materias/{alumnos_idAlumno}")
+	public List<Materias> horarioDocentesMaterias(@PathVariable int alumnos_idAlumno){
+		return repositorio.horarioDocentesMaterias(alumnos_idAlumno);
+	}
 }
