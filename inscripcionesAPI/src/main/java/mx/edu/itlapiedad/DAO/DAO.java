@@ -12,7 +12,7 @@ public interface DAO {
 //prueba
 	List<Docentes> consultarDocentes();
 	Docentes buscarDocente(int iddocente);
-	
+	List<Materias> horarioDocentesMaterias(int alumnos_idAlumno);
 	List<Carreras> consultarCarreras();
 	Carreras buscarCarreras(int idcarrera);
 	Alumnos buscarAlumno(int idAlumno);
