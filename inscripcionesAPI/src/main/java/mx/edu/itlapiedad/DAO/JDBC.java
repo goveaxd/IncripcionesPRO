@@ -96,5 +96,16 @@ public class JDBC implements DAO {
 		return conexion.query(sql,new RMAlumnos(), idAlumno);
 	}
 
-	
+	@Override
+	public List<Materias> horarioDocentesMaterias(int alumnos_idAlumno) {
+		sql="select d.nombre, m.*, a.nombre\r\n" + 
+				"from docentes d \r\n" + 
+				"join imparte i on i.docentes_iddocente = d.iddocente\r\n" + 
+				"join materias m on m.idmaterias = i.materias_idmaterias\r\n" + 
+				"join horario h on h.materias_idmaterias = m.idmaterias\r\n" + 
+				"join alumnos a on a.idalumno=h.alumnos_idAlumno\r\n" + 
+				"where a.idAlumno = ?";
+		return conexion.query(sql,new RMMaterias(), alumnos_idAlumno);
+	}
+
 }
