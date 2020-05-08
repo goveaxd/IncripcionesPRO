@@ -31,4 +31,5 @@ public class ITLP_Materia {
 	public List<Materias> consultaKardexMateria(@PathVariable int idalumno) {
 		return repositorio.consultaKardexMateria(idalumno);
 	}
+	//horarioc:
 }
