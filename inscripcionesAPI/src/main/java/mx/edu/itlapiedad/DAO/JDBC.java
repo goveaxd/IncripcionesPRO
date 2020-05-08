@@ -87,7 +87,7 @@ public class JDBC implements DAO {
 		return conexion.query(sql,new RMMaterias(), idalumno);
 	}
 
-	//horarioDocentes
+	//horario
 		@Override
 		public List<Materias> horarioDocentesMaterias(int alumnos_idAlumno) {
 			sql="select d.nombre, m.*, a.nombre\r\n" + 
