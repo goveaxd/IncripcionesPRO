@@ -86,6 +86,15 @@ public class JDBC implements DAO {
 	            "where a.idalumno=?";
 		return conexion.query(sql,new RMMaterias(), idalumno);
 	}
+	
+	@Override
+	public List<Alumnos> buscarInfoAlumno(int idAlumno) {
+		sql ="select a.idalumno, a.contraseña, a.correo, a.nombre, a.apellidos, a.noControl, c.nombre\r\n" + 
+				"from alumnos a\r\n" + 
+				"join carreras c on c.idcarrera=a.idcarrera\r\n" + 
+				"where idalumno=?";
+		return conexion.query(sql,new RMAlumnos(), idAlumno);
+	}
 
 	
 }
