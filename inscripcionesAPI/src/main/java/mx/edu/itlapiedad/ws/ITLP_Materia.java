@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.edu.itlapiedad.DAO.DAO;
+import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
 
 @RestController
@@ -24,5 +25,19 @@ public class ITLP_Materia {
 	@GetMapping("materias/carrera/{idcarrera}") 
 	public List<Materias> buscarMateriasCarrera(@PathVariable int idcarrera) {
 		return repositorio.buscarMateriaCarrera(idcarrera);
+	}
+	
+	@GetMapping("materias/kardex/{idalumno}")
+	public List<Materias> consultaKardexMateria(@PathVariable int idalumno) {
+		return repositorio.consultaKardexMateria(idalumno);
+	}
+	//horarioc:
+	@GetMapping("docente/materias/{alumnos_idAlumno}")
+	public List<Materias> horarioDocentesMaterias(@PathVariable int alumnos_idAlumno){
+		return repositorio.horarioDocentesMaterias(alumnos_idAlumno);
+	}
+	@GetMapping("materias/horarios/{idAlumno}")
+	public List<Materias> consultaHorario(@PathVariable int idAlumno){
+		return repositorio.consultaHorario(idAlumno);
 	}
 }

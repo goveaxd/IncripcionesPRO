@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import mx.edu.itlapiedad.DAO.RM;
 import mx.edu.itlapiedad.DAO.RMCARRERAS;
 import mx.edu.itlapiedad.models.Docentes;
+import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
@@ -76,4 +77,44 @@ public class JDBC implements DAO {
 		return conexion.query(sql,new RMAlumnos(), idcarrera);
 	}
 	
+	@Override
+	public List<Materias> consultaKardexMateria(int idalumno) {
+		sql ="select m.idmaterias, m.creditos, m.idcarrera,  m.nombre_materia, m.codigo_materia, c.calificacion\r\n" + 
+	            "from materias m\r\n" + 
+	            "join cursada c on c.materias_idmaterias=m.idmaterias\r\n" + 
+	            "join alumnos a on a.idalumno=c.alumnos_idAlumno\r\n" + 
+	            "where a.idalumno=?";
+		return conexion.query(sql,new RMMaterias(), idalumno);
+	}
+	
+	@Override
+	public List<Alumnos> buscarInfoAlumno(int idAlumno) {
+		sql ="select a.idalumno, a.contraseña, a.correo, a.nombre, a.apellidos, a.noControl, c.nombre\r\n" + 
+				"from alumnos a\r\n" + 
+				"join carreras c on c.idcarrera=a.idcarrera\r\n" + 
+				"where idalumno=?";
+		return conexion.query(sql,new RMAlumnos(), idAlumno);
+	}
+
+	@Override
+	public List<Materias> horarioDocentesMaterias(int alumnos_idAlumno) {
+		sql="select d.nombre, m.*, a.nombre\r\n" + 
+				"from docentes d \r\n" + 
+				"join imparte i on i.docentes_iddocente = d.iddocente\r\n" + 
+				"join materias m on m.idmaterias = i.materias_idmaterias\r\n" + 
+				"join horario h on h.materias_idmaterias = m.idmaterias\r\n" + 
+				"join alumnos a on a.idalumno=h.alumnos_idAlumno\r\n" + 
+				"where a.idAlumno = ?";
+		return conexion.query(sql,new RMMaterias(), alumnos_idAlumno);
+	}
+
+	@Override
+	public List<Materias> consultaHorario(int idAlumno) {
+		sql="select m.idmaterias, m.codigo_materia, m.creditos, m.idcarrera, m.nombre_materia, h.hora, h.dia\r\n" + 
+				"from materias m\r\n" + 
+				"join horas h on h.materias_idmaterias = m.idmaterias\r\n" + 
+				"join horario ho on ho.materias_idmaterias = m.idmaterias\r\n" + 
+				"where ho.alumnos_idAlumno = ? order by h.dia;";
+		return conexion.query(sql,new RMMaterias(), idAlumno);
+	}
 }

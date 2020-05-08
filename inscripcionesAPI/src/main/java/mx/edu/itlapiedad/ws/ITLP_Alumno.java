@@ -28,4 +28,9 @@ public class ITLP_Alumno {
 		return repositorio.buscarAlumnCarrera(idcarrera);
 	}
 	
+	@GetMapping("alumnos/info/{idAlumno}")
+	public List<Alumnos> buscarInfoAlumno(@PathVariable int idAlumno) {
+		return repositorio.buscarInfoAlumno(idAlumno);
+	}
+	
 }
