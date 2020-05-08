@@ -21,6 +21,7 @@ public interface DAO {
 	List<Alumnos> buscarAlumnCarrera(int idcarrera);
 	List<Materias> buscarMateriaCarrera(int idcarrera);
 	List<Materias> consultaKardexMateria(int idalumno);
+	List<Alumnos> buscarInfoAlumno(int idAlumno);
 	
 	
 }
