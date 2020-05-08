@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import mx.edu.itlapiedad.DAO.RM;
 import mx.edu.itlapiedad.DAO.RMCARRERAS;
 import mx.edu.itlapiedad.models.Docentes;
+import mx.edu.itlapiedad.models.Horario;
+import mx.edu.itlapiedad.models.Imparte;
 import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.SesionAlumno;
@@ -78,13 +80,13 @@ public class JDBC implements DAO {
 	}
 	
 	@Override
-	public List<Materias> consultaKardexMateria(int idalumno) {
-		sql ="select m.idmaterias, m.creditos, m.idcarrera,  m.nombre_materia, m.codigo_materia, c.calificacion\r\n" + 
+	public List<Kardex> consultaKardexMateria(int idalumno) {
+		sql ="select m.nombre_materia,  m.creditos, m.codigo_materia, c.calificacion\r\n" + 
 	            "from materias m\r\n" + 
 	            "join cursada c on c.materias_idmaterias=m.idmaterias\r\n" + 
 	            "join alumnos a on a.idalumno=c.alumnos_idAlumno\r\n" + 
 	            "where a.idalumno=?";
-		return conexion.query(sql,new RMMaterias(), idalumno);
+		return conexion.query(sql,new RMKardex(), idalumno);
 	}
 	
 	@Override
@@ -97,24 +99,31 @@ public class JDBC implements DAO {
 	}
 
 	@Override
-	public List<Materias> horarioDocentesMaterias(int alumnos_idAlumno) {
-		sql="select d.nombre, m.*, a.nombre\r\n" + 
+	public List<Imparte> consultaDocenteMateria(int idAlumno) {
+		sql ="select m.codigo_materia, m.nombre_materia, d.iddocente, d.RFC, d.mail, m.creditos,  d.nombre, d.apellido\r\n" + 
 				"from docentes d \r\n" + 
 				"join imparte i on i.docentes_iddocente = d.iddocente\r\n" + 
 				"join materias m on m.idmaterias = i.materias_idmaterias\r\n" + 
 				"join horario h on h.materias_idmaterias = m.idmaterias\r\n" + 
 				"join alumnos a on a.idalumno=h.alumnos_idAlumno\r\n" + 
 				"where a.idAlumno = ?";
-		return conexion.query(sql,new RMMaterias(), alumnos_idAlumno);
+		return conexion.query(sql,new RMImparte(), idAlumno);
 	}
 
 	@Override
-	public List<Materias> consultaHorario(int idAlumno) {
-		sql="select m.idmaterias, m.codigo_materia, m.creditos, m.idcarrera, m.nombre_materia, h.hora, h.dia\r\n" + 
+	public List<Horario> consultaHorario(int idAlumno) {
+		sql="select m.nombre_materia, h.hora, h.dia\r\n" + 
 				"from materias m\r\n" + 
 				"join horas h on h.materias_idmaterias = m.idmaterias\r\n" + 
 				"join horario ho on ho.materias_idmaterias = m.idmaterias\r\n" + 
 				"where ho.alumnos_idAlumno = ? order by h.dia;";
-		return conexion.query(sql,new RMMaterias(), idAlumno);
+		return conexion.query(sql,new RMHorario(), idAlumno);
 	}
+
+	@Override
+	public List<Materias> horarioDocentesMaterias(int alumnos_idAlumno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
