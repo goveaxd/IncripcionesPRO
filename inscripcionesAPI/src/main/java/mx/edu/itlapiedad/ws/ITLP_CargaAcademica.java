@@ -17,14 +17,14 @@ import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 
 @RestController
 @RequestMapping("/tec")
-@CrossOrigin(origins = "*", methods = (RequestMethod.POST))
+@CrossOrigin(origins = "*", methods={RequestMethod.GET})
 public class ITLP_CargaAcademica {
 
 	@Autowired
 	DAO repositorio;
 	
-	@GetMapping("cargaAcademica/{Carrera}/{Grupo}/{Semestre}")
-	public List<ModeloCargaAcademica> buscarAlumno(@PathVariable String Grupo,@PathVariable String Carrera, @PathVariable int Semestre) {
-		return repositorio.buscarMateriasCarga(Carrera,Grupo,Semestre);
+	@GetMapping("cargaAcademica/{CodigoCarrera}/{Grupo}/{Semestre}")
+	public List<ModeloCargaAcademica> buscarAlumno(@PathVariable String Grupo,@PathVariable String CodigoCarrera, @PathVariable int Semestre) {
+		return repositorio.buscarMateriasCarga(CodigoCarrera,Grupo,Semestre);
 	}
 }
