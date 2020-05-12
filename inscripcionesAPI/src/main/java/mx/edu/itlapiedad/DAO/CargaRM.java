@@ -16,7 +16,7 @@ public class CargaRM implements RowMapper<ModeloCargaAcademica> {
 		ModeloCargaAcademica carga = new ModeloCargaAcademica();
 		carga.setCodigo_materia(rs.getString("codigo_materia"));
 		carga.setCreditos(rs.getInt("creditos"));
-		carga.setNombre_materia("nombre_materia");
+		carga.setNombre_materia(rs.getString("nombre_materia"));
 		return carga;
 	}
 
