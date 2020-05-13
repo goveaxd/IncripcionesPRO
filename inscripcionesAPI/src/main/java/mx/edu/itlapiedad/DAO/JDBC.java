@@ -13,6 +13,7 @@ import mx.edu.itlapiedad.models.Horario;
 import mx.edu.itlapiedad.models.Imparte;
 import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
+import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;;
@@ -125,5 +126,18 @@ public class JDBC implements DAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+ 	@Override
+	public List<ModeloCargaAcademica> buscarMateriasCarga(String Carrera, String grupo, int semestre) {
+		// TODO Auto-generated method stub
+		sql="select ma.creditos, ma.codigo_materia,ma.nombre_materia,se.numero_semestre,gr.grupo from materias ma\r\n" + 
+				"join  carreras ca on ca.idcarrera = ma.idcarrera\r\n" + 
+				"join grupo gr on gr.carreras_idcarrera = gr.idgrupo\r\n" + 
+				"join semestre se on se.grupo_idgrupo = gr.idgrupo\r\n" + 
+				"where se.numero_semestre = ? and gr.grupo= ?\r\n" + 
+				"group by ma.idmaterias";
+		return conexion.query(sql,new CargaRM(), semestre,grupo);
+	}
+
 
 }

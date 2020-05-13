@@ -7,6 +7,7 @@ import mx.edu.itlapiedad.models.Horario;
 import mx.edu.itlapiedad.models.Imparte;
 import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
+import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
@@ -27,5 +28,5 @@ public interface DAO {
 	List<Imparte> consultaDocenteMateria(int idAlumno);
 	List<Horario> consultaHorario(int idAlumno);
 	
-	
+	List<ModeloCargaAcademica> buscarMateriasCarga(String Carrera, String grupo, int semestre);
 }
