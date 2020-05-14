@@ -22,9 +22,5 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file IncripcionesPRO/pom.xml
-    - name: Upload Maven build artifact
-      uses: actions/upload-artifact@vl
-      with: 
-        name: IncripcionesPRO
-        path: IncripcionesPRO/target/backend.0.0.1.jar  
+  
       
