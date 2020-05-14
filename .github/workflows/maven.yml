@@ -25,8 +25,8 @@ jobs:
     - name: Upload Maven build artifact
       uses: actions/upload-artifact@v1
       with:
-        name: IncripcionesPRO
-        path: IncripcionesPRO/target/IncripcionesPRO-0.0.1.jar 
+        name: inscripcionesAPI
+        path: inscripcionesAPI/target/inscripcionesAPI-0.0.1.jar 
       
   
       
