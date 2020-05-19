@@ -21,6 +21,7 @@ public class ITLP_Imparte {
 	@Autowired
 	DAO repositorio;
 	
+	//
 	@GetMapping("imparte/materia/{idAlumno}")
 	public List<Imparte> consultaDocenteMateria(@PathVariable int idAlumno) {
 		return repositorio.consultaDocenteMateria(idAlumno);

@@ -20,10 +20,13 @@ public class ITLP_Docente {
 	@Autowired
 	DAO repositorio;
 	
+	//DOCENTE
 	@GetMapping("docente")
 	public List<Docentes> consultarDocente(){
 		return repositorio.consultarDocentes();
 	}
+	
+	//DOCENTE-ID
 	@GetMapping("docente/{iddocente}")
 	public Docentes buscarDocente(@PathVariable int iddocente) {
 		return repositorio.buscarDocente(iddocente);

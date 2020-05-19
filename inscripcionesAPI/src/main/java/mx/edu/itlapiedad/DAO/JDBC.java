@@ -26,11 +26,16 @@ public class JDBC implements DAO {
 	
 	String sql;
 	@Override
+	//DOCENTES
+	//servicio web para consultar docentes
 	public List<Docentes> consultarDocentes() {
 		sql = "SELECT * FROM docentes";
 		return conexion.query(sql, new RM());
 	}
 	
+	
+	//servicio web para consultar docentes mediante
+	//su id del docente
 	@Override
 	public Docentes buscarDocente(int iddocente) {
 		sql = "SELECT * FROM docentes WHERE iddocente = ?";
@@ -38,48 +43,61 @@ public class JDBC implements DAO {
 	}
 	
 	//CARRERAS
+	//servicio web para consultar carreras
 	@Override
 	public List<Carreras> consultarCarreras() {
 		sql = "SELECT * FROM carreras";
 		return conexion.query(sql, new RMCARRERAS());
 	}
+	
+	//servicio web para consultar carreras mediante el id de la carrera
 	@Override
 	public Carreras buscarCarreras(int idcarrera) {
 		sql = "SELECT * FROM carreras WHERE idcarrera = ?";
 		return conexion.queryForObject(sql, new RMCARRERAS(), idcarrera);
 	}
 	
+	//MATERIAS
+	//servicio web para consultar materias mediante el id de las materias 
 	@Override
 	public Materias buscarMaterias(int idmaterias) {
 		sql = "SELECT * FROM materias WHERE idmaterias = ?";
 		return conexion.queryForObject(sql, new RMMaterias(), idmaterias);
 	}
 	
+	//servicio web para consultar materias mediante el id de la carrera
 	@Override
 	public List<Materias> buscarMateriaCarrera(int  idcarrera) {
 		sql ="SELECT * FROM Materias WHERE idcarrera =?";
 		return conexion.query(sql,new RMMaterias(), idcarrera);
 	}
-
+	
+	//ALUMNOS
+	//servicio web para cosnultar alumnos mediante el id del alumno
 	@Override
 	public Alumnos buscarAlumno(int idAlumno) {
 		// TODO Auto-generated method stub
 		sql ="SELECT * FROM Alumnos WHERE idAlumno =?";
 		return conexion.queryForObject(sql, new RMAlumnos(), idAlumno);
 	}
-
+	
+	//servicio web para consultar alumnos mediante el numero de control y contraseña
 	@Override
 	public Alumnos sesion(SesionAlumno alumno) {
 		sql ="SELECT * FROM Alumnos WHERE NoControl =? and Contraseña = ?";
 		return conexion.queryForObject(sql, new RMAlumnos(), alumno.getNoControl(),alumno.getContraseña());
 	}
 
+	//servicio web para consultar alumnos mediante el id de la carrera
 	@Override
 	public List<Alumnos> buscarAlumnCarrera(int idcarrera) {
 		sql ="select * from alumnos where idCarrera =?";
 		return conexion.query(sql,new RMAlumnos(), idcarrera);
 	}
 	
+	
+	//KARDEX
+	//servicio web para consultar el kardex
 	@Override
 	public List<Kardex> consultaKardexMateria(int idalumno) {
 		sql ="select m.nombre_materia,  m.creditos, m.codigo_materia, c.calificacion\r\n" + 
@@ -90,6 +108,8 @@ public class JDBC implements DAO {
 		return conexion.query(sql,new RMKardex(), idalumno);
 	}
 	
+	//INFO-MATERIAS
+	//SW para consultar la informacion del alumno
 	@Override
 	public List<Alumnos> buscarInfoAlumno(int idAlumno) {
 		sql ="select a.idalumno, a.contraseña, a.correo, a.nombre, a.apellidos, a.noControl, c.nombre\r\n" + 
@@ -99,6 +119,9 @@ public class JDBC implements DAO {
 		return conexion.query(sql,new RMAlumnos(), idAlumno);
 	}
 
+	
+	//DOCENTE-MATERIAS
+	//SW para consultar el docente
 	@Override
 	public List<Imparte> consultaDocenteMateria(int idAlumno) {
 		sql ="select m.codigo_materia, m.nombre_materia, d.iddocente, d.RFC, d.mail, m.creditos,  d.nombre, d.apellido\r\n" + 
@@ -110,7 +133,10 @@ public class JDBC implements DAO {
 				"where a.idAlumno = ?";
 		return conexion.query(sql,new RMImparte(), idAlumno);
 	}
-
+	
+	
+	//HORARIOS
+	//SW para consultar el horario
 	@Override
 	public List<Horario> consultaHorario(int idAlumno) {
 		sql="select m.nombre_materia, h.hora, h.dia\r\n" + 
@@ -120,13 +146,18 @@ public class JDBC implements DAO {
 				"where ho.alumnos_idAlumno = ? order by h.dia;";
 		return conexion.query(sql,new RMHorario(), idAlumno);
 	}
-
+	
+	
+	//SW para consultar horario de docentes
 	@Override
 	public List<Materias> horarioDocentesMaterias(int alumnos_idAlumno) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
+	
+	//CARGA ACADEMICA
+	//SW para consultar la carga academica
  	@Override
 	public List<ModeloCargaAcademica> buscarMateriasCarga(String Carrera, String grupo, int semestre) {
 		// TODO Auto-generated method stub

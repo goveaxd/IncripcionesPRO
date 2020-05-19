@@ -21,6 +21,7 @@ public class ITLP_Horario {
 	@Autowired
 	DAO repositorio;
 	
+	//MATERIAS-HORARIOS
 	@GetMapping("materias/horarios/{idAlumno}")
 	public List<Horario> consultaHorario(@PathVariable int idAlumno){
 		return repositorio.consultaHorario(idAlumno);

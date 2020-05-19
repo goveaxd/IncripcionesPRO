@@ -17,10 +17,13 @@ public class ITLP_Carrera {
 	@Autowired
 	DAO repositorio;
 	
+	//CARRERAS
 	@GetMapping("carreras")
 	public List<Carreras> consultarCarreras(){
 		return repositorio.consultarCarreras();
 	}
+	
+	//CARRERAS-ID
 	@GetMapping("carreras/{idcarrera}")
 	public Carreras buscarCarreras(@PathVariable int idcarrera) {
 		return repositorio.buscarCarreras(idcarrera);
