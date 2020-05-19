@@ -21,10 +21,11 @@ public class ITLP_Kardex {
 	@Autowired
 	DAO repositorio;
 	
-	
+	//KARDEX
 	@GetMapping("kardex/materias/{idalumno}")
 	public List<Kardex> consultaKardexMateria(@PathVariable int idalumno) {
 		return repositorio.consultaKardexMateria(idalumno);
 	}
+	
 	
 }

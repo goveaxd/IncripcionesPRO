@@ -21,11 +21,13 @@ public class ITLP_Alumno {
 	@Autowired
 	DAO repositorio;
 	
+	//ALUMNO-ID
 	@GetMapping("alumno/{idAlumno}")
 	public Alumnos buscarAlumno(@PathVariable int idAlumno) {
 		return repositorio.buscarAlumno(idAlumno);
 	}
 	
+	//ALUMNOS DE LA CARRERA
 	@GetMapping("alumnos/carreras/{idcarrera}")
 	public List<Alumnos> buscarCarrerasAlumno(@PathVariable int idcarrera) {
 		return repositorio.buscarAlumnCarrera(idcarrera);

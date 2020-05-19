@@ -20,6 +20,7 @@ public class ITLP_LogIn {
 	@Autowired
 	DAO repositorio;
 	
+	//SESION
 	@GetMapping("sesion/{noControl}/{contraseña}")
 	public String recuperarSesion(@PathVariable String noControl,@PathVariable String contraseña) {
 		SesionAlumno alumno = new SesionAlumno();

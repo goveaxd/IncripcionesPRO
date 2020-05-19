@@ -21,10 +21,14 @@ public class ITLP_Materia {
 	@Autowired
 	DAO repositorio;
 	
+	
+	//MATERIAS
 	@GetMapping("materias/{idmaterias}")
 	public Materias buscarMaterias(@PathVariable int idmaterias) {
 		return repositorio.buscarMaterias(idmaterias);
 	}
+	
+	//MATERIAS POR EL ID DE LA CARRERA
 	@GetMapping("materias/carrera/{idcarrera}") 
 	public List<Materias> buscarMateriasCarrera(@PathVariable int idcarrera) {
 		return repositorio.buscarMateriaCarrera(idcarrera);
