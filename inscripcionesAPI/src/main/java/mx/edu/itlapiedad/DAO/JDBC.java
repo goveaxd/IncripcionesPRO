@@ -180,6 +180,7 @@ public class JDBC implements DAO {
 		conexion.update(sql, InsertarCargaAcademica.getIdcarga_academica(), InsertarCargaAcademica.getSemestre_idsemestre(), 
 				InsertarCargaAcademica.getMaterias_idmaterias(), 
 				InsertarCargaAcademica.getAlumnos_idAlumno());
+		
 	}
 
 
