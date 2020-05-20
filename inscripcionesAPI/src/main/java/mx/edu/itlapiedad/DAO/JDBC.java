@@ -11,10 +11,12 @@ import mx.edu.itlapiedad.DAO.RMCARRERAS;
 import mx.edu.itlapiedad.models.Docentes;
 import mx.edu.itlapiedad.models.Horario;
 import mx.edu.itlapiedad.models.Imparte;
+import mx.edu.itlapiedad.models.InsertarCargaAcademica;
 import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 import mx.edu.itlapiedad.models.SesionAlumno;
+
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;;
 
@@ -168,6 +170,14 @@ public class JDBC implements DAO {
 				"where se.numero_semestre = ? and gr.grupo= ?\r\n" + 
 				"group by ma.idmaterias";
 		return conexion.query(sql,new CargaRM(), semestre,grupo);
+	}
+ 	
+ 	@Override
+	public void insertar(InsertarCargaAcademica InsertarCargaAcademica) {
+		sql = "INSERT INTO carga_academica (idcarga_academica, semestre_idsemestre, materias_idmaterias, alumnos_idAlumno) VALUES(?, ?, ?, ?)";
+		conexion.update(sql, InsertarCargaAcademica.getIdcarga_academica(), InsertarCargaAcademica.getSemestre_idsemestre(), 
+				InsertarCargaAcademica.getMaterias_idmaterias(), 
+				InsertarCargaAcademica.getAlumnos_idAlumno());
 	}
 
 
