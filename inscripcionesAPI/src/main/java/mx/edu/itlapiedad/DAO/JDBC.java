@@ -18,7 +18,8 @@ import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 import mx.edu.itlapiedad.models.SesionAlumno;
 
 import mx.edu.itlapiedad.models.Alumnos;
-import mx.edu.itlapiedad.models.Carreras;;
+import mx.edu.itlapiedad.models.Carreras;
+import mx.edu.itlapiedad.models.Departamentos;;
 
 @Repository
 public class JDBC implements DAO {
@@ -182,6 +183,14 @@ public class JDBC implements DAO {
 				InsertarCargaAcademica.getMaterias_idmaterias(), 
 				InsertarCargaAcademica.getAlumnos_idAlumno());
 		
+	}
+ 	
+ 	//CONSULTAR DEPARTAMENTOS
+ 	@Override
+	public List<Departamentos> consultarDepartamentos() {
+		// TODO Auto-generated method stub
+		sql="select * from departamento";
+		return conexion.query(sql,new RMDepartamentos());
 	}
 
 

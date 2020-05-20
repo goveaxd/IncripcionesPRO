@@ -12,6 +12,7 @@ import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
+import mx.edu.itlapiedad.models.Departamentos;
 public interface DAO {
 //prueba
 	List<Docentes> consultarDocentes();
@@ -31,4 +32,6 @@ public interface DAO {
 	public void insertar(InsertarCargaAcademica InsertarCargaAcademica);
 	
 	List<ModeloCargaAcademica> buscarMateriasCarga(String Carrera, String grupo, int semestre);
+	
+	List<Departamentos> consultarDepartamentos();
 }
