@@ -172,6 +172,8 @@ public class JDBC implements DAO {
 		return conexion.query(sql,new CargaRM(), semestre,grupo);
 	}
  	
+ 	
+ 	//INSERTAR CARGA ACADEMICA
  	@Override
 	public void insertar(InsertarCargaAcademica InsertarCargaAcademica) {
 		sql = "INSERT INTO carga_academica (idcarga_academica, semestre_idsemestre, materias_idmaterias, alumnos_idAlumno) VALUES(?, ?, ?, ?)";
