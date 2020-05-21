@@ -22,17 +22,11 @@ public class ITLP_LogIn {
 	
 	//SESION
 	@GetMapping("sesion/{noControl}/{contraseña}")
-	public String recuperarSesion(@PathVariable String noControl,@PathVariable String contraseña) {
+	public int recuperarSesion(@PathVariable String noControl,@PathVariable String contraseña) {
 		SesionAlumno alumno = new SesionAlumno();
 		alumno.setContraseña(contraseña);
 		alumno.setNoControl(noControl);
-		try {
-		Alumnos al=repositorio.sesion(alumno);
-			return "Bienvenido "+al.getNombre()+" "+al.getApellidos();
-		
-		}catch(Exception d) {
-		}
-		return "Usuario y/o contraseña incorrectos";
-	}
-
+	
+		return repositorio.sesion(alumno);
+}
 }

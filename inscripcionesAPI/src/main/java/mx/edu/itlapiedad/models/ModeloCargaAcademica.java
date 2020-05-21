@@ -1,6 +1,7 @@
 package mx.edu.itlapiedad.models;
 
 public class ModeloCargaAcademica {
+	int idmaterias;
 	int creditos;
 	String codigo_materia;
 	String nombre_materia;
@@ -10,11 +11,20 @@ public class ModeloCargaAcademica {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ModeloCargaAcademica(int creditos, String codigo_materia, String nombre_materia) {
+	public ModeloCargaAcademica(int idmaterias, int creditos, String codigo_materia, String nombre_materia) {
 		super();
+		this.idmaterias = idmaterias;
 		this.creditos = creditos;
 		this.codigo_materia = codigo_materia;
 		this.nombre_materia = nombre_materia;
+	}
+
+	public int getIdmaterias() {
+		return idmaterias;
+	}
+
+	public void setIdmaterias(int idmaterias) {
+		this.idmaterias = idmaterias;
 	}
 
 	public int getCreditos() {
@@ -40,7 +50,7 @@ public class ModeloCargaAcademica {
 	public void setNombre_materia(String nombre_materia) {
 		this.nombre_materia = nombre_materia;
 	}
-	
+
 	
 	
 }
