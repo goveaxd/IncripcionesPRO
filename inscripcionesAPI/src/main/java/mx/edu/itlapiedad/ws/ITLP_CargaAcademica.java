@@ -25,7 +25,7 @@ public class ITLP_CargaAcademica {
 	@Autowired
 	DAO repositorio;
 	
-	//CARGA ACADEMICA
+	//CARGA ACADEMICA daniel y lupita (caliz de cambios) jajajajja
 	@GetMapping("cargaAcademica/{CodigoCarrera}/{Grupo}/{Semestre}")
 	public List<ModeloCargaAcademica> buscarAlumno(@PathVariable String Grupo,@PathVariable String CodigoCarrera, @PathVariable int Semestre) {
 		return repositorio.buscarMateriasCarga(CodigoCarrera,Grupo,Semestre);
