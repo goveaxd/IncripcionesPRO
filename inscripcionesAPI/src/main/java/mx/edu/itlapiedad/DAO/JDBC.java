@@ -208,6 +208,14 @@ public class JDBC implements DAO {
 				pago.getAlumnos_idAlumno());
 		
 	}
+ 	
+ 	
+ 	@Override
+	public List<Docentes> buscarDocentePorDepartamento(int departamento_iddepartamento) {
+		// TODO Auto-generated method stub
+		sql="select * from docentes where departamento_iddepartamento = ?";
+		return conexion.query(sql,new RM(), departamento_iddepartamento);
+	}
 
 
 }
