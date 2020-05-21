@@ -6,26 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.edu.itlapiedad.DAO.DAO;
-import mx.edu.itlapiedad.models.Kardex;
-import mx.edu.itlapiedad.models.Materias;
+
+import mx.edu.itlapiedad.models.InsertarCargaAcademica;
+
 
 @RestController
 @RequestMapping("/tec")
 @CrossOrigin(origins = "*", methods={RequestMethod.GET})
-public class ITLP_Kardex {
+
+public class ITLP_InsertarCargaAcademica {
 	@Autowired
 	DAO repositorio;
 	
-	//KARDEX
-	@GetMapping("kardex/materias/{idalumno}")
-	public List<Kardex> consultaKardexMateria(@PathVariable int idalumno) {
-		return repositorio.consultaKardexMateria(idalumno);
+	//RUTA DE INSERTAR CARGA ACADEMICA
+	@PostMapping("cargaAcademica")
+	public void insertar(@RequestBody InsertarCargaAcademica InsertarCargaAcademica) {
+		repositorio.insertar(InsertarCargaAcademica);
 	}
-	
 	
 }
