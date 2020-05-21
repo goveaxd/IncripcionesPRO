@@ -86,9 +86,16 @@ public class JDBC implements DAO {
 	
 	//servicio web para consultar alumnos mediante el numero de control y contraseña
 	@Override
-	public Alumnos sesion(SesionAlumno alumno) {
+	public int sesion(SesionAlumno alumno) {
 		sql ="SELECT * FROM Alumnos WHERE NoControl =? and Contraseña = ?";
-		return conexion.queryForObject(sql, new RMAlumnos(), alumno.getNoControl(),alumno.getContraseña());
+		int idAlumno=0;
+		try {
+			idAlumno= conexion.queryForObject(sql, new RMAlumnos(), alumno.getNoControl(),alumno.getContraseña()).getIdAlumno();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return idAlumno;
+		
 	}
 
 	//servicio web para consultar alumnos mediante el id de la carrera
@@ -164,13 +171,13 @@ public class JDBC implements DAO {
  	@Override
 	public List<ModeloCargaAcademica> buscarMateriasCarga(String Carrera, String grupo, int semestre) {
 		// TODO Auto-generated method stub
-		sql="select ma.creditos, ma.codigo_materia,ma.nombre_materia,se.numero_semestre,gr.grupo from materias ma\r\n" + 
+		sql="select ma.idmaterias, ma.creditos, ma.codigo_materia,ma.nombre_materia,se.numero_semestre,gr.grupo from materias ma\r\n" + 
 				"join  carreras ca on ca.idcarrera = ma.idcarrera\r\n" + 
 				"join grupo gr on gr.carreras_idcarrera = gr.idgrupo\r\n" + 
 				"join semestre se on se.grupo_idgrupo = gr.idgrupo\r\n" + 
-				"where se.numero_semestre = ? and gr.grupo= ?\r\n" + 
+				"where se.numero_semestre = ? and gr.grupo= ? and ca.codigo = ?\r\n" + 
 				"group by ma.idmaterias";
-		return conexion.query(sql,new CargaRM(), semestre,grupo);
+		return conexion.query(sql,new CargaRM(), semestre,grupo,Carrera);
 	}
  	
  	

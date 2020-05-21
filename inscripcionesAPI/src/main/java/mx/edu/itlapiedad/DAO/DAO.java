@@ -21,7 +21,7 @@ public interface DAO {
 	List<Carreras> consultarCarreras();
 	Carreras buscarCarreras(int idcarrera);
 	Alumnos buscarAlumno(int idAlumno);
-	Alumnos sesion(SesionAlumno alumno);
+	int sesion(SesionAlumno alumno);
 	Materias buscarMaterias(int idmaterias);
 	List<Alumnos> buscarAlumnCarrera(int idcarrera);
 	List<Materias> buscarMateriaCarrera(int idcarrera);
