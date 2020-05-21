@@ -88,7 +88,14 @@ public class JDBC implements DAO {
 	@Override
 	public int sesion(SesionAlumno alumno) {
 		sql ="SELECT * FROM Alumnos WHERE NoControl =? and Contraseña = ?";
-		return conexion.queryForObject(sql, new RMAlumnos(), alumno.getNoControl(),alumno.getContraseña()).getIdAlumno();
+		int idAlumno=0;
+		try {
+			idAlumno= conexion.queryForObject(sql, new RMAlumnos(), alumno.getNoControl(),alumno.getContraseña()).getIdAlumno();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return idAlumno;
+		
 	}
 
 	//servicio web para consultar alumnos mediante el id de la carrera
