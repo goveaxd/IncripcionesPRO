@@ -395,6 +395,7 @@ UNLOCK TABLES;
 
 -- Dump completed on 2020-05-07  8:55:16
 
+
 CREATE TABLE IF NOT EXISTS `inscripciones`.`carga_academica` (
   `idcarga_academica` INT NOT NULL AUTO_INCREMENT,
   `semestre_idsemestre` INT(11) NOT NULL,
