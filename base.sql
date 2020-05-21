@@ -394,3 +394,29 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-05-07  8:55:16
+
+CREATE TABLE IF NOT EXISTS `inscripciones`.`carga_academica` (
+  `idcarga_academica` INT NOT NULL AUTO_INCREMENT,
+  `semestre_idsemestre` INT(11) NOT NULL,
+  `materias_idmaterias` INT(11) NOT NULL,
+  `alumnos_idAlumno` INT(11) NOT NULL,
+  PRIMARY KEY (`idcarga_academica`),
+  INDEX `fk_carga_academica_semestre1_idx` (`semestre_idsemestre` ASC) VISIBLE,
+  INDEX `fk_carga_academica_materias1_idx` (`materias_idmaterias` ASC) VISIBLE,
+  INDEX `fk_carga_academica_alumnos1_idx` (`alumnos_idAlumno` ASC) VISIBLE,
+  CONSTRAINT `fk_carga_academica_semestre1`
+    FOREIGN KEY (`semestre_idsemestre`)
+    REFERENCES `inscripciones`.`semestre` (`idsemestre`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_carga_academica_materias1`
+    FOREIGN KEY (`materias_idmaterias`)
+    REFERENCES `inscripciones`.`materias` (`idmaterias`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_carga_academica_alumnos1`
+    FOREIGN KEY (`alumnos_idAlumno`)
+    REFERENCES `inscripciones`.`alumnos` (`idAlumno`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
