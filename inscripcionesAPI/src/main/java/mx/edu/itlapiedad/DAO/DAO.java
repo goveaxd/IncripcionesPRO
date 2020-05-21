@@ -5,12 +5,14 @@ import java.util.List;
 import mx.edu.itlapiedad.models.Docentes;
 import mx.edu.itlapiedad.models.Horario;
 import mx.edu.itlapiedad.models.Imparte;
+import mx.edu.itlapiedad.models.InsertarCargaAcademica;
 import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
+import mx.edu.itlapiedad.models.Departamentos;
 public interface DAO {
 //prueba
 	List<Docentes> consultarDocentes();
@@ -27,6 +29,9 @@ public interface DAO {
 	List<Alumnos> buscarInfoAlumno(int idAlumno);
 	List<Imparte> consultaDocenteMateria(int idAlumno);
 	List<Horario> consultaHorario(int idAlumno);
+	public void insertar(InsertarCargaAcademica InsertarCargaAcademica);
 	
 	List<ModeloCargaAcademica> buscarMateriasCarga(String Carrera, String grupo, int semestre);
+	
+	List<Departamentos> consultarDepartamentos();
 }
