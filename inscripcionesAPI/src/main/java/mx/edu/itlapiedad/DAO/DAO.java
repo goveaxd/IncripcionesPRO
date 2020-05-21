@@ -9,6 +9,7 @@ import mx.edu.itlapiedad.models.InsertarCargaAcademica;
 import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.ModeloCargaAcademica;
+import mx.edu.itlapiedad.models.Pago;
 import mx.edu.itlapiedad.models.SesionAlumno;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
@@ -34,4 +35,6 @@ public interface DAO {
 	List<ModeloCargaAcademica> buscarMateriasCarga(String Carrera, String grupo, int semestre);
 	
 	List<Departamentos> consultarDepartamentos();
+	public void guardarpago(Pago pago);
+	List<Docentes> buscarDocentePorDepartamento(int departamento_iddepartamento);
 }

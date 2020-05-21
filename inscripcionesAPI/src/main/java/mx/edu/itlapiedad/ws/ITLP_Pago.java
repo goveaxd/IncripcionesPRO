@@ -1,6 +1,5 @@
 package mx.edu.itlapiedad.ws;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,22 +13,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.edu.itlapiedad.DAO.DAO;
-import mx.edu.itlapiedad.models.Alumnos;
-import mx.edu.itlapiedad.models.ModeloCargaAcademica;
+import mx.edu.itlapiedad.models.InsertarCargaAcademica;
+import mx.edu.itlapiedad.models.Pago;
 
 @RestController
 @RequestMapping("/tec")
 @CrossOrigin(origins = "*", methods={RequestMethod.GET})
-public class ITLP_CargaAcademica {
-
+public class ITLP_Pago {
 	@Autowired
 	DAO repositorio;
 	
-	//CARGA ACADEMICA daniel y lupita (caliz de cambios) jajajajja
-	@GetMapping("cargaAcademica/{CodigoCarrera}/{Grupo}/{Semestre}")
-	public List<ModeloCargaAcademica> buscarAlumno(@PathVariable String Grupo,@PathVariable String CodigoCarrera, @PathVariable int Semestre) {
-		return repositorio.buscarMateriasCarga(CodigoCarrera,Grupo,Semestre);
-	}
-	
-	
+	//RUTA DE GUARDAR PAGO
+		@PostMapping("guardarPago")
+		public void guardarpago(@RequestBody Pago pago) {
+			repositorio.guardarpago(pago);
+		}
+
 }

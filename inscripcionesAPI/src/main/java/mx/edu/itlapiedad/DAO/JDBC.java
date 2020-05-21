@@ -15,11 +15,12 @@ import mx.edu.itlapiedad.models.InsertarCargaAcademica;
 import mx.edu.itlapiedad.models.Kardex;
 import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.ModeloCargaAcademica;
+import mx.edu.itlapiedad.models.Pago;
 import mx.edu.itlapiedad.models.SesionAlumno;
 
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
-import mx.edu.itlapiedad.models.Departamentos;;
+import mx.edu.itlapiedad.models.Departamentos;
 
 @Repository
 public class JDBC implements DAO {
@@ -198,6 +199,22 @@ public class JDBC implements DAO {
 		// TODO Auto-generated method stub
 		sql="select * from departamento";
 		return conexion.query(sql,new RMDepartamentos());
+	}
+ 	@Override
+	public void guardarpago(Pago pago) {
+		sql = "INSERT INTO pago (idpago, estado, semestre_idsemestre, alumnos_idAlumno) VALUES(?, ?, ?, ?)";
+		conexion.update(sql, pago.getIdpago(), pago.getEstado(), 
+				pago.getSemestre_idsemestre(), 
+				pago.getAlumnos_idAlumno());
+		
+	}
+ 	
+ 	
+ 	@Override
+	public List<Docentes> buscarDocentePorDepartamento(int departamento_iddepartamento) {
+		// TODO Auto-generated method stub
+		sql="select * from docentes where departamento_iddepartamento = ?";
+		return conexion.query(sql,new RM(), departamento_iddepartamento);
 	}
 
 
