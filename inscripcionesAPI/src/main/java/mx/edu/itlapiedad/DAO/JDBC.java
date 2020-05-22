@@ -186,8 +186,8 @@ public class JDBC implements DAO {
  	
  	@Override
 	public void insertar(InsertarCargaAcademica InsertarCargaAcademica) {
-		sql = "INSERT INTO carga_academica (idcarga_academica, semestre_idsemestre, materias_idmaterias, alumnos_idAlumno) VALUES(?, ?, ?, ?)";
-		conexion.update(sql, InsertarCargaAcademica.getIdcarga_academica(), InsertarCargaAcademica.getSemestre_idsemestre(), 
+		sql = "INSERT INTO carga_academica (semestre_idsemestre, materias_idmaterias, alumnos_idAlumno) VALUES(?, ?, ?)";
+		conexion.update(sql, InsertarCargaAcademica.getSemestre_idsemestre(), 
 				InsertarCargaAcademica.getMaterias_idmaterias(), 
 				InsertarCargaAcademica.getAlumnos_idAlumno());
 		
