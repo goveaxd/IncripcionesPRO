@@ -37,5 +37,8 @@ public class ITLP_Alumno {
 	public List<Alumnos> buscarInfoAlumno(@PathVariable int idAlumno) {
 		return repositorio.buscarInfoAlumno(idAlumno);
 	}
-	
+	@GetMapping("alumnos/info/Npcrtl/{NoControl}")
+	public Alumnos buscarInfoNoControlAlumno(@PathVariable int NoControl) {
+		return repositorio.buscarInfoNoControlAlumno(NoControl);
+	}
 }

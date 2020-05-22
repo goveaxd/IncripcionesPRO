@@ -84,6 +84,12 @@ public class JDBC implements DAO {
 		sql ="SELECT * FROM Alumnos WHERE idAlumno =?";
 		return conexion.queryForObject(sql, new RMAlumnos(), idAlumno);
 	}
+	@Override
+	public Alumnos buscarInfoNoControlAlumno(int NoControl) {
+		// TODO Auto-generated method stub
+		sql ="SELECT * FROM Alumnos WHERE NoControl =?";
+		return conexion.queryForObject(sql, new RMAlumnos(), NoControl);
+	}
 	
 	//servicio web para consultar alumnos mediante el numero de control y contraseña
 	@Override

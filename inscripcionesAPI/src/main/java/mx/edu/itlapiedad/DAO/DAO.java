@@ -37,4 +37,5 @@ public interface DAO {
 	List<Departamentos> consultarDepartamentos();
 	public void guardarpago(Pago pago);
 	List<Docentes> buscarDocentePorDepartamento(int departamento_iddepartamento);
+	Alumnos buscarInfoNoControlAlumno(int NoCotrnol);
 }
