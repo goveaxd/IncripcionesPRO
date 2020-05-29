@@ -17,7 +17,9 @@ public class RMPago implements RowMapper<Pago>{
 		Pago.setEstado(rs.getString("estado"));
 		Pago.setSemestre_idsemestre(rs.getInt("semestre_idsemestre"));
 		Pago.setAlumnos_idAlumno(rs.getInt("alumnos_idAlumno"));
-		
+		Pago.setTicket(rs.getString("ticket"));
+		Pago.setNoTransaccion(rs.getInt("noTransaccion"));
+
 		return Pago;
 	}
 

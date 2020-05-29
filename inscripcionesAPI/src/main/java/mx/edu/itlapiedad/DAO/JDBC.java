@@ -208,12 +208,15 @@ public class JDBC implements DAO {
 	}
  	@Override
 	public void guardarpago(Pago pago) {
-		sql = "INSERT INTO pago (idpago, estado, semestre_idsemestre, alumnos_idAlumno) VALUES(?, ?, ?, ?)";
-		conexion.update(sql, pago.getIdpago(), pago.getEstado(), 
-				pago.getSemestre_idsemestre(), 
-				pago.getAlumnos_idAlumno());
-		
-	}
+ 		sql = "INSERT INTO pago (estado, semestre_idsemestre, alumnos_idAlumno,ticket,noTransaccion) VALUES(?, ?, ?, ?, ?)";
+ 		conexion.update(sql, pago.getEstado(), 
+ 		pago.getSemestre_idsemestre(), 
+ 		pago.getAlumnos_idAlumno(),
+ 		pago.getTicket(),
+ 		pago.getNoTransaccion());
+ 		
+ 		}
+
  	
  	
  	@Override
