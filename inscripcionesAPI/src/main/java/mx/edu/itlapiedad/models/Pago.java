@@ -5,16 +5,21 @@ public class Pago {
 	String estado;
 	int semestre_idsemestre;
 	int alumnos_idAlumno;
+	String ticket;
+	int noTransaccion;
 	public Pago() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Pago(int idpago, String estado, int semestre_idsemestre, int alumnos_idAlumno) {
+	public Pago(int idpago, String estado, int semestre_idsemestre, int alumnos_idAlumno, String ticket,
+			int noTransaccion) {
 		super();
 		this.idpago = idpago;
 		this.estado = estado;
 		this.semestre_idsemestre = semestre_idsemestre;
 		this.alumnos_idAlumno = alumnos_idAlumno;
+		this.ticket = ticket;
+		this.noTransaccion = noTransaccion;
 	}
 	public int getIdpago() {
 		return idpago;
@@ -40,6 +45,17 @@ public class Pago {
 	public void setAlumnos_idAlumno(int alumnos_idAlumno) {
 		this.alumnos_idAlumno = alumnos_idAlumno;
 	}
-	
-	
+	public String getTicket() {
+		return ticket;
+	}
+	public void setTicket(String ticket) {
+		this.ticket = ticket;
+	}
+	public int getNoTransaccion() {
+		return noTransaccion;
+	}
+	public void setNoTransaccion(int noTransaccion) {
+		this.noTransaccion = noTransaccion;
+	}
+		
 }
