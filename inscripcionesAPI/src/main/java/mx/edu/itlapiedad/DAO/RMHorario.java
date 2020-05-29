@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import mx.edu.itlapiedad.models.Horario;
-import mx.edu.itlapiedad.models.Kardex;
+
 
 public class RMHorario implements RowMapper<Horario> {
 

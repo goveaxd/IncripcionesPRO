@@ -3,6 +3,7 @@ package mx.edu.itlapiedad.DAO;
 import java.util.List;
 
 import mx.edu.itlapiedad.models.Docentes;
+import mx.edu.itlapiedad.models.DocentesDepartamento;
 import mx.edu.itlapiedad.models.Horario;
 import mx.edu.itlapiedad.models.Imparte;
 import mx.edu.itlapiedad.models.InsertarCargaAcademica;
@@ -11,6 +12,7 @@ import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 import mx.edu.itlapiedad.models.Pago;
 import mx.edu.itlapiedad.models.SesionAlumno;
+import mx.edu.itlapiedad.models.AlumnoSemestre;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
 import mx.edu.itlapiedad.models.Departamentos;
@@ -36,6 +38,7 @@ public interface DAO {
 	
 	List<Departamentos> consultarDepartamentos();
 	public void guardarpago(Pago pago);
-	List<Docentes> buscarDocentePorDepartamento(int departamento_iddepartamento);
+	List<DocentesDepartamento> buscarDocentePorDepartamento(int departamento_iddepartamento);
 	Alumnos buscarInfoNoControlAlumno(int NoCotrnol);
+	List<AlumnoSemestre> buscarAlumnoSemestre(int idAlumno);
 }

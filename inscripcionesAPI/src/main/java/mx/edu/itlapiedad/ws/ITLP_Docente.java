@@ -33,10 +33,7 @@ public class ITLP_Docente {
 	}
 	
 	//DOCENTE-IDDEPARTAMENTO
-		@GetMapping("docente/departamento/{departamento_iddepartamento}")
-		public List<Docentes> buscarDocentePorDepartamento(@PathVariable int departamento_iddepartamento) {
-			return repositorio.buscarDocentePorDepartamento(departamento_iddepartamento);
-		}
+		
 	
 	
 	

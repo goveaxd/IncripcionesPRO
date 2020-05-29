@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import mx.edu.itlapiedad.DAO.RM;
 import mx.edu.itlapiedad.DAO.RMCARRERAS;
 import mx.edu.itlapiedad.models.Docentes;
+import mx.edu.itlapiedad.models.DocentesDepartamento;
 import mx.edu.itlapiedad.models.Horario;
 import mx.edu.itlapiedad.models.Imparte;
 import mx.edu.itlapiedad.models.InsertarCargaAcademica;
@@ -17,7 +18,7 @@ import mx.edu.itlapiedad.models.Materias;
 import mx.edu.itlapiedad.models.ModeloCargaAcademica;
 import mx.edu.itlapiedad.models.Pago;
 import mx.edu.itlapiedad.models.SesionAlumno;
-
+import mx.edu.itlapiedad.models.AlumnoSemestre;
 import mx.edu.itlapiedad.models.Alumnos;
 import mx.edu.itlapiedad.models.Carreras;
 import mx.edu.itlapiedad.models.Departamentos;
@@ -129,7 +130,7 @@ public class JDBC implements DAO {
 	//SW para consultar la informacion del alumno
 	@Override
 	public List<Alumnos> buscarInfoAlumno(int idAlumno) {
-		sql ="select a.idalumno, a.contraseña, a.correo, a.nombre, a.apellidos, a.noControl, c.nombre\r\n" + 
+		sql ="select a.idalumno, a.contraseña, a.correo, a.nombre, a.apellidos, a.noControl, c.nombreCarrera\r\n" + 
 				"from alumnos a\r\n" + 
 				"join carreras c on c.idcarrera=a.idcarrera\r\n" + 
 				"where idalumno=?";
@@ -220,10 +221,23 @@ public class JDBC implements DAO {
  	
  	
  	@Override
-	public List<Docentes> buscarDocentePorDepartamento(int departamento_iddepartamento) {
+	public List<DocentesDepartamento> buscarDocentePorDepartamento(int departamento_iddepartamento) {
 		// TODO Auto-generated method stub
-		sql="select * from docentes where departamento_iddepartamento = ?";
-		return conexion.query(sql,new RM(), departamento_iddepartamento);
+		sql="select dn.nombre, apellido, RFC, mail, d.nombreDep  from docentes dn "+
+				"join departamento d on d.iddepartamento = dn.departamento_iddepartamento " +
+				"where departamento_iddepartamento = ?";
+		return conexion.query(sql,new RMDocentesDepartamento(), departamento_iddepartamento);
+	}
+ 	
+ 	@Override
+ 	public List<AlumnoSemestre> buscarAlumnoSemestre(int idAlumno) {
+		sql ="select Nombre, Apellidos, NoControl, Numero_Semestre, nombreCarrera " + 
+				"from alumnos a " + 
+				"join carreras c on c.idcarrera = a.idcarrera " + 
+				"join grupo g on g.carreras_idcarrera = c.idcarrera " + 
+				"join semestre s on s.grupo_idgrupo = g.idgrupo " + 
+				"where Nocontrol = ?";
+		return conexion.query(sql,new RMAlumnoSemestre(), idAlumno);
 	}
 
 
